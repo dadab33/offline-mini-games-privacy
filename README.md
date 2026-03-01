@@ -1,7 +1,7 @@
 # Politique de confidentialité — Offline Mini Games
 
 **Date d'entrée en vigueur :** 20 février 2026  
-**Dernière mise à jour :** 20 février 2026
+**Dernière mise à jour :** 28 février 2026
 
 ---
 
@@ -9,42 +9,60 @@
 
 Offline Mini Games (ci-après « l'Application ») est une application mobile de mini-jeux conçue pour fonctionner **entièrement hors-ligne**. Cette politique de confidentialité explique quelles données sont utilisées, comment elles sont traitées et quels droits vous avez.
 
-Nous prenons votre vie privée au sérieux. Notre principe de base : **nous ne collectons pas vos données personnelles et nous ne les transmettons à personne**.
+L'Application intègre des services tiers (Google AdMob pour les publicités, Google Play Games Services pour les classements et succès) qui peuvent collecter certaines données conformément aux politiques de Google. Nous vous informons de manière transparente de ces collectes ci-dessous.
 
 ---
 
 ## 2. Données collectées
 
-### 2.1 Données collectées par l'Application
+### 2.1 Données collectées directement par l'Application
 
-L'Application **ne collecte aucune donnée personnelle**. Les seules informations stockées sont :
+L'Application **ne collecte aucune donnée personnelle directement**. Les seules informations stockées localement sont :
 
 | Type de donnée | Localisation | Finalité |
 |---|---|---|
 | Scores et meilleurs scores | Appareil local uniquement | Affichage de la progression |
 | Préférences utilisateur (son, vibration, langue) | Appareil local uniquement | Personnalisation de l'expérience |
 | État d'avancement dans les niveaux | Appareil local uniquement | Continuité du jeu |
+| Statut premium (achat sans pub) | Appareil local uniquement | Désactivation des publicités |
 
-Ces données sont stockées exclusivement sur votre appareil via le mécanisme de stockage local (`shared_preferences`) et **ne quittent jamais votre appareil**.
+Ces données sont stockées exclusivement sur votre appareil via `shared_preferences` et **ne quittent jamais votre appareil**.
 
-### 2.2 Données non collectées
+### 2.2 Données collectées indirectement via les services tiers
 
-L'Application **ne collecte pas** :
+L'Application intègre des services tiers susceptibles de collecter des données :
 
-- Nom, prénom ou identité
-- Adresse e-mail ou tout autre coordonnée
-- Numéro de téléphone
-- Localisation géographique
-- Identifiant publicitaire
-- Données biométriques
-- Historique de navigation ou d'utilisation transmis à un serveur
-- Toute autre donnée à caractère personnel
+| Service | Données collectées | Finalité |
+|---|---|---|
+| **Google AdMob** | Identifiant publicitaire (IDFA/GAID), données comportementales anonymisées | Affichage de publicités ciblées |
+| **Google Play Games Services** | Identifiant de compte Google, scores soumis aux classements, succès débloqués | Classements et succès publics |
+| **Google Play Billing** | Données de transaction gérées par Google Play | Achat in-app « Supprimer les publicités » |
+
+Ces données sont collectées et traitées par Google selon sa [Politique de confidentialité](https://policies.google.com/privacy).
+
+### 2.3 Consentement publicitaire (RGPD / CCPA)
+
+Conformément au Règlement Général sur la Protection des Données (RGPD) et aux exigences de Google AdMob, l'Application affiche un **formulaire de consentement** aux utilisateurs situés dans l'Espace Économique Européen (EEE) lors du premier lancement :
+
+- **Consentement accordé** → publicités personnalisées (AdMob utilise votre identifiant publicitaire).
+- **Consentement refusé** → publicités non personnalisées (aucun ciblage basé sur votre profil).
+- **Utilisateur premium** → aucune publicité, aucun consentement demandé.
+
+Vous pouvez modifier votre choix à tout moment depuis les paramètres de l'Application.
 
 ---
 
 ## 3. Connectivité réseau
 
-L'Application **ne requiert aucune connexion Internet** et **n'effectue aucune communication réseau externe**. Aucune donnée n'est envoyée vers nos serveurs ou vers des serveurs tiers.
+L'Application fonctionne **sans connexion Internet** pour les jeux en solo. Les fonctionnalités suivantes nécessitent ponctuellement une connexion réseau :
+
+| Fonctionnalité | Réseau requis |
+|---|---|
+| Affichage des publicités AdMob | Oui (HTTPS vers serveurs Google) |
+| Synchronisation des classements Play Games | Oui (HTTPS vers serveurs Google) |
+| Achat in-app (suppression des pubs) | Oui (Google Play) |
+
+En l'absence de connexion, ces fonctionnalités sont silencieusement ignorées : les jeux restent pleinement jouables.
 
 ---
 
@@ -78,18 +96,25 @@ Ces permissions sont demandées **uniquement au moment où vous accédez à un m
 
 ## 5. Services tiers
 
-L'Application **n'intègre aucun service tiers** tel que :
+L'Application intègre les services tiers suivants :
 
-- Outils d'analyse (Google Analytics, Firebase, etc.)
-- Réseaux publicitaires
-- SDK de collecte de données
-- Services de crash reporting externes
+| Service | Éditeur | Utilisation | Politique de confidentialité |
+|---|---|---|---|
+| **Google AdMob** | Google LLC | Affichage de publicités (utilisateurs non premium) | [policies.google.com/privacy](https://policies.google.com/privacy) |
+| **Google Play Games Services** | Google LLC | Classements, succès, connexion compte Google | [policies.google.com/privacy](https://policies.google.com/privacy) |
+| **Google Play Billing** | Google LLC | Achat in-app « Supprimer les publicités » | [play.google.com/about/play-terms](https://play.google.com/about/play-terms) |
+
+> **Note :** Si vous n'êtes pas connecté à Google Play Games et que vous n'avez pas accordé de consentement publicitaire, aucune donnée n'est transmise à des tiers.
 
 ---
 
 ## 6. Mineurs
 
-L'Application est accessible à tous les publics, y compris aux personnes de moins de 18 ans. Dans la mesure où **aucune donnée personnelle n'est collectée**, aucun régime de protection spécifique aux mineurs n'est applicable.
+L'Application est accessible à tous les publics, y compris aux personnes de moins de 18 ans. Concernant la publicité :
+
+- AdMob est configuré avec `tagForChildDirectedTreatment: false` (public général).
+- Si votre application cible principalement des enfants de moins de 13 ans, ce paramètre doit être mis à `true` (conformité COPPA).
+- Les utilisateurs mineurs sont encouragés à utiliser la version premium (sans publicité).
 
 ---
 
@@ -116,7 +141,7 @@ Toute mise à jour de cette politique de confidentialité sera publiée sur cett
 Pour toute question relative à cette politique de confidentialité, vous pouvez nous contacter à :
 
 **E-mail :** *contact@sanotema.com*  
-**Développeur :** *Damien Bertrand*  
+**Développeur :** *Damien.bertrand33@gmail.com*  
 **Pays :** *France*
 
 ---
